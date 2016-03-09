@@ -8,7 +8,7 @@ import time
 import sys
 
 
-def find_tuple(path, extension):
+def find_tuple(path, extension='dta'):
     """returns files within path and matching extension"""
     result = []
     for root, dirs, files in os.walk(path):
@@ -60,4 +60,5 @@ def arquive_files(tuple_list, days=90, lmsize=50):
 
 if __name__ == "__main__":
     for arg in sys.argv[1:]:
-        arquive_files(find_tuple(arg, 'dta'))
+        dtas = find_tuple(arg)
+        arquive_files(dtas)
